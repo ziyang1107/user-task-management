@@ -12,11 +12,14 @@ use Illuminate\View\View;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the tasks.
+     *
+     * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(): View
     {
         $tasks = Task::with('user')->get();
+
         return view('tasks.index', compact('tasks'));
     }
 
@@ -28,13 +31,10 @@ class TaskController extends Controller
      */
     public function create(Request $request): View
     {
-        // Retrieve user_id from the query string if present
         $userId = $request->query('user_id');
 
-        // Get all users for the dropdown list
         $users = User::all();
 
-        // If a user ID is provided, fetch the user
         $currentUser = $userId ? User::find($userId) : null;
 
         return view('tasks.create', compact('currentUser', 'users'));
@@ -48,6 +48,7 @@ class TaskController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // Validate the input data.
         $validated = $request->validate([
             'title' => 'required|string|min:3',
             'description' => 'nullable|string',
@@ -58,34 +59,44 @@ class TaskController extends Controller
 
         Task::create($validated);
 
-        return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
+        return redirect($request->input('previous_url', route('tasks.index')))
+            ->with('success', 'Task created successfully!');
     }
 
     /**
-     * Display the specified resource.
+     * Display a specific task.
+     *
+     * @param \App\Models\Task $task
+     * @return \Illuminate\View\View
      */
-    public function show(Task $task)
+    public function show(Task $task): View
     {
-        // Display a single task.
         return view('tasks.show', compact('task'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing a specific task.
+     *
+     * @param \App\Models\Task $task
+     * @return \Illuminate\View\View
      */
-    public function edit(Task $task)
+    public function edit(Task $task): View
     {
-        // Get all users to assign to the task.
         $users = User::all();
+
         return view('tasks.edit', compact('task', 'users'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a specific task in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Task  $task
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task): RedirectResponse
     {
-        // Validate the input data.
+        // Validate the updated input data.
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -94,22 +105,21 @@ class TaskController extends Controller
             'user_id' => 'nullable|exists:users,id',
         ]);
 
-        // Update the task with the validated data.
         $task->update($validated);
 
-        // Redirect back to the task index page with a success message.
         return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a specific task from the database.
+     *
+     * @param \App\Models\Task $task
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task): RedirectResponse
     {
-        // Delete the task.
         $task->delete();
 
-        // Redirect back to the task index page with a success message.
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
     }
 }
