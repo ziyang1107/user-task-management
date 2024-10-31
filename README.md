@@ -160,7 +160,7 @@ If you prefer, you can set up the database manually with the following steps:
 ```
 3) Seed the Database (Optional): Populate the database with sample data by               running:
  ```
-        php artisan db:seed
+ php artisan db:seed
 ```
 
 
