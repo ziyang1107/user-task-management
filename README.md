@@ -110,9 +110,10 @@ npm install
 ```
 
 ## Step 4: Set Up Environment Variables
-```
 Copy the .env.example file to create a new .env file:
+```
 cp .env.example .env
+```
 
 Then open the .env file and configure the following settings:
 Set the database details to match your local database setup:
@@ -126,20 +127,21 @@ DB_PASSWORD=your_database_password # Replace with your database password
 To use file-based storage for sessions and cache, set the following values in .env:
 SESSION_DRIVER=file
 CACHE_DRIVER=file
-```
+
 
 ## Step 5: Generate Application Key
-```
 Generate an application key to secure user sessions and encrypted data:
+```
 php artisan key:generate
 ```
 
 ## Step 6: Set Up the Database
-```
 Option A: Automatic Database Setup
 
 The application includes a custom command to automatically create and set up the database:
+```
 php artisan setup:database
+```
 
 This command will create the database (if it doesn’t exist) and run all migrations.
 
@@ -148,13 +150,16 @@ Option B: Manual Database Setup
 
 If you prefer, you can set up the database manually with the following steps:
 
-	1.	Create the Database: Log in to MySQL and create a new database:
-        CREATE DATABASE your_database_name;
-
-	2.	Run Migrations: Execute migrations to create the necessary tables:
-        php artisan migrate
-
-	3.	Seed the Database (Optional): Populate the database with sample data by               running:
+1) Create the Database: Log in to MySQL and create a new database:
+```
+   CREATE DATABASE your_database_name;
+```
+2) Run Migrations: Execute migrations to create the necessary tables:
+ ```
+   php artisan migrate
+```
+3) Seed the Database (Optional): Populate the database with sample data by               running:
+ ```
         php artisan db:seed
 ```
 
