@@ -65,7 +65,6 @@ class TaskController extends Controller
 
         $previousUrl = $request->session()->get('previous_url', route('tasks.index'));
 
-        // Clear the previous URL from the session after redirecting
         $request->session()->forget('previous_url');
 
         return redirect($previousUrl)->with('success', 'Task created successfully!');
@@ -79,9 +78,7 @@ class TaskController extends Controller
      */
     public function show(Task $task, Request $request): View
     {
-        if (!$request->session()->has('previous_url')) {
-            $request->session()->put('previous_url', url()->full());
-        }
+        $request->session()->put('previous_url', url()->full());
 
         return view('tasks.show', compact('task'));
     }

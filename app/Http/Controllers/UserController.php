@@ -65,9 +65,7 @@ class UserController extends Controller
      */
     public function show(User $user, Request $request): View
     {
-        if (!$request->session()->has('previous_url')) {
-            $request->session()->put('previous_url', url()->full());
-        }
+        $request->session()->put('previous_url', url()->full());
 
         return view('users.view', compact('user'));
     }
