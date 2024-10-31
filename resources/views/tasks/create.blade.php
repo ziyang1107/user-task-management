@@ -26,6 +26,7 @@
             id="user_search"
             onkeyup="filterUsers()"
             placeholder="Username*"
+            value="{{ old('user_search', optional($users->firstWhere('id', old('user_id')))->name) }}"
             class="border w-full p-2 mt-2 {{ $errors->has('user_id') ? 'border-red-500' : '' }}"
         >
 
@@ -56,7 +57,7 @@
     <!-- Task Title Input -->
     <div class="mb-4">
         <label for="title" class="block font-bold">Title</label>
-        <input type="text" id="title" name="title" placeholder="Title*" class="border w-full p-2 mt-2 {{ $errors->has('title') ? 'border-red-500' : '' }}" ">
+        <input type="text" id="title" name="title" placeholder="Title*" value="{{ old('title') }}" class="border w-full p-2 mt-2 {{ $errors->has('title') ? 'border-red-500' : '' }}">
         @error('title') <span class="text-red-500 text-sm mt-1 block font-bold">{{ $message }}</span> @enderror
     </div>
 
