@@ -19,14 +19,22 @@
     <div class="grid grid-cols-2 gap-5">
         <!-- Basic User Details -->
         <div>
-            <p class="mb-4"><strong>User ID:</strong> {{ $user->id }}</p>
-            <p class="mb-4"><strong>Name:</strong> {{ $user->name }}</p>
-            <p class="mb-4"><strong>Email:</strong> {{ $user->email }}</p>
+            <p class="mb-1"><strong>User ID:</strong></p>
+            <p class="mb-4">{{ $user->id }}</p>
+
+            <p class="mb-1"><strong>Name:</strong></p>
+            <p class="mb-4">{{ $user->name }}</p>
+
+            <p class="mb-1"><strong>Email:</strong></p>
+            <p class="mb-4">{{ $user->email }}</p>
         </div>
         <!-- User Timestamps -->
         <div>
-            <p class="mb-4"><strong>Created At:</strong> {{ $user->created_at->format('Y-m-d / H:i:s') }}</p>
-            <p class="mb-4"><strong>Updated At:</strong> {{ $user->updated_at->format('Y-m-d / H:i:s') }}</p>
+            <p class="mb-1"><strong>Created At:</strong></p>
+            <p class="mb-4">{{ $user->created_at->format('Y-m-d / H:i:s') }}</p>
+
+            <p class="mb-1"><strong>Updated At:</strong></p>
+            <p class="mb-4">{{ $user->updated_at->format('Y-m-d / H:i:s') }}</p>
         </div>
     </div>
 </div>
