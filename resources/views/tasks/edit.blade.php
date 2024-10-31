@@ -69,7 +69,7 @@
     <div class="mb-6">
         <label for="description" class="block font-bold">Description</label>
         <textarea id="description" name="description" placeholder="Task Description"
-                  class="border w-full p-2 mt-2 {{ $errors->has('description') ? 'border-red-500' : '' }}">{{ old('description', $task->description) }}</textarea>
+                  class="border w-full p-2 mt-2" rows="5" {{ $errors->has('description') ? 'border-red-500' : '' }}">{{ old('description', $task->description) }}</textarea>
         @error('description')
         <span class="text-red-500 text-sm mt-1 block font-bold">{{ $message }}</span>
         @enderror
