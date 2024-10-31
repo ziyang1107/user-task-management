@@ -15,7 +15,7 @@
 <body class="bg-gray-100">
 
 <div class="container mx-auto mt-8">
-    <nav class="mb-6 flex justify-between items-center">
+    <nav class="mb-10 flex justify-between items-center">
         <!-- Navigation Links -->
         <div class="flex space-x-4">
             <a href="{{ route('welcome') }}"
