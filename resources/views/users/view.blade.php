@@ -7,6 +7,13 @@
 <!-- Page Header -->
 <h1 class="text-2xl font-bold mb-4">User Details</h1>
 
+<!-- Task Status -->
+@if(session('success'))
+<div id="success-message" class="bg-green-100 text-green-700 p-3 rounded mb-4">
+    {{ session('success') }}
+</div>
+@endif
+
 <!-- User Information Section -->
 <div class="bg-white shadow rounded-lg p-6 mb-15 mt-6">
     <h2 class="text-lg font-semibold mb-4 border-b-2 border-gray-300 pb-2">User Information</h2>
@@ -68,5 +75,19 @@
     </table>
     @endif
 </div>
+
+<script>
+    // Fade out the success message after 3 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        const successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            setTimeout(() => {
+                successMessage.style.transition = 'opacity 0.5s ease';
+                successMessage.style.opacity = '0';
+                setTimeout(() => successMessage.remove(), 500);
+            }, 3000);
+        }
+    });
+</script>
 
 @endsection
