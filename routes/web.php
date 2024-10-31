@@ -6,7 +6,7 @@ use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::resource('users', UserController::class);
 Route::resource('tasks', TaskController::class);

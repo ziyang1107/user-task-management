@@ -18,6 +18,11 @@
 <div class="container mx-auto mt-8">
     <nav class="mb-6 flex justify-between items-center">
         <div>
+            <a href="{{ route('welcome') }}"
+               class="mr-4 text-lg {{ request()->routeIs('welcome') ? 'text-blue-700 underline-offset font-bold' : 'text-blue-500' }}">
+                Home
+            </a>
+
             <a href="{{ route('users.index') }}"
                class="mr-4 text-lg {{ request()->routeIs('users.*') ? 'text-blue-700 underline-offset font-bold' : 'text-blue-500' }}">
                 Users
