@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class TaskController extends Controller
@@ -124,6 +125,10 @@ class TaskController extends Controller
     public function destroy(Task $task): RedirectResponse
     {
         $task->delete();
+
+
+        $maxId = DB::table('tasks')->max('id') ?? 0;
+        DB::statement('ALTER TABLE tasks AUTO_INCREMENT = ' . ($maxId + 1));
 
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
     }
