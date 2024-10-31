@@ -16,10 +16,9 @@
 
 <!-- User Information Section -->
 <div class="bg-white shadow rounded-lg p-6 mb-15 mt-6">
-    <h2 class="text-lg font-semibold mb-4 border-b-2 border-gray-300 pb-2">User Information</h2>
     <div class="grid grid-cols-2 gap-5">
         <div>
-            <p class="mb-4"><strong>ID:</strong> {{ $user->id }}</p>
+            <p class="mb-4"><strong>User ID:</strong> {{ $user->id }}</p>
             <p class="mb-4"><strong>Name:</strong> {{ $user->name }}</p>
             <p class="mb-4"><strong>Email:</strong> {{ $user->email }}</p>
         </div>
@@ -41,38 +40,41 @@
 </div>
 
 <!-- Associated Tasks Section -->
-<div class="bg-white shadow rounded-lg p-6">
+<div class="bg-white shadow-lg rounded-lg p-6 min-h-[500px] mb-15 mt-6">
     <h2 class="text-lg font-semibold mb-4">Associated Tasks</h2>
 
     @if($user->tasks->isEmpty())
-    <p class="text-gray-500">No tasks assigned to this user.</p>
+    <p class="text-gray-500">No tasks assigned to this user...</p>
     @else
-    <table class="table-auto w-full border border-gray-700 mt-4" aria-label="User tasks table">
-        <thead>
-        <tr class="bg-gray-200">
-            <th class="border px-4 py-2 text-center">ID</th>
-            <th class="border px-4 py-2 text-center">Title</th>
-            <th class="border px-4 py-2 text-center">Description</th>
-            <th class="border px-4 py-2 text-center">Status</th>
-            <th class="border px-4 py-2 text-center">Due Date</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($user->tasks as $task)
-        <tr>
-            <td class="border px-4 py-2 text-center">{{ $task->id }}</td>
-            <td class="border px-4 py-2 text-center">{{ $task->title }}</td>
-            <td class="border px-4 py-2 text-center">{{ $task->description ?: 'N/A' }}</td>
-            <td class="border px-4 py-2 text-center">
-                <span class="{{ $task->status == 'completed' ? 'text-green-500' : 'text-yellow-500' }}">
-                    {{ ucfirst($task->status) }}
-                </span>
-            </td>
-            <td class="border px-4 py-2 text-center">{{ $task->due_date ? $task->due_date->format('Y-m-d') : 'N/A' }}</td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
+    <!-- Scrollable table container with a fixed height -->
+    <div class="overflow-y-auto max-h-64">
+        <table class="table-auto w-full border border-gray-700 mt-4" aria-label="User tasks table">
+            <thead>
+            <tr class="bg-gray-200">
+                <th class="border px-4 py-2 text-center">ID</th>
+                <th class="border px-4 py-2 text-center">Title</th>
+                <th class="border px-4 py-2 text-center">Description</th>
+                <th class="border px-4 py-2 text-center">Status</th>
+                <th class="border px-4 py-2 text-center">Due Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($user->tasks as $task)
+            <tr>
+                <td class="border px-4 py-2 text-center">{{ $task->id }}</td>
+                <td class="border px-4 py-2 text-center">{{ $task->title }}</td>
+                <td class="border px-4 py-2 text-center">{{ $task->description ?: 'N/A' }}</td>
+                <td class="border px-4 py-2 text-center">
+                    <span class="{{ $task->status == 'completed' ? 'text-green-500' : 'text-yellow-500' }}">
+                        {{ ucfirst($task->status) }}
+                    </span>
+                </td>
+                <td class="border px-4 py-2 text-center">{{ $task->due_date ? $task->due_date->format('Y-m-d') : 'N/A' }}</td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
     @endif
 </div>
 
