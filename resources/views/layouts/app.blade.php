@@ -19,17 +19,17 @@
         <!-- Navigation Links -->
         <div class="flex space-x-4">
             <a href="{{ route('welcome') }}"
-               class="text-lg px-4 py-2 {{ request()->routeIs('welcome') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
+               class="text-lg px-3 py-2 {{ request()->routeIs('welcome') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
                 Home
             </a>
 
             <a href="{{ route('users.index') }}"
-               class="text-lg px-4 py-2 {{ request()->routeIs('users.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
+               class="text-lg px-3 py-2 {{ request()->routeIs('users.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
                 Users
             </a>
 
             <a href="{{ route('tasks.index') }}"
-               class="text-lg px-4 py-2 {{ request()->routeIs('tasks.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
+               class="text-lg px-3 py-2 {{ request()->routeIs('tasks.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
                 Tasks
             </a>
         </div>
