@@ -20,7 +20,7 @@
     @method('PUT')
 
     <!-- User Selection with Search and Dropdown -->
-    <div class="mb-6 relative">
+    <div class="mb-4 relative">
         @if(request()->query('user_id'))
         <!-- Hidden input to set user ID if passed as a query parameter -->
         <input type="hidden" name="user_id" value="{{ request()->query('user_id') }}">
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Title Input Field -->
-    <div class="mb-6">
+    <div class="mb-4">
         <label for="title" class="block font-bold">Title</label>
         <input type="text" id="title" name="title" value="{{ old('title', $task->title) }}"
                placeholder="Task Title*"
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Description Textarea Field -->
-    <div class="mb-6">
+    <div class="mb-4">
         <label for="description" class="block font-bold">Description</label>
         <textarea id="description" name="description" placeholder="Task Description"
                   class="border w-full p-2 mt-2" rows="5" {{ $errors->has('description') ? 'border-red-500' : '' }}">{{ old('description', $task->description) }}</textarea>
@@ -76,7 +76,7 @@
     </div>
 
     <!-- Status Selection Dropdown -->
-    <div class="mb-6">
+    <div class="mb-4">
         <label for="status" class="block font-bold">Status</label>
         <select id="status" name="status" class="border w-full p-2 mt-2 h-10">
             <option value="pending" {{ old('status', $task->status) == 'pending' ? 'selected' : '' }}>Pending</option>
@@ -89,7 +89,7 @@
     </div>
 
     <!-- Due Date Field -->
-    <div class="mb-6">
+    <div class="mb-4">
         <label for="due_date" class="block font-bold">Due Date</label>
         <input type="date" id="due_date" name="due_date" value="{{ old('due_date', optional($task->due_date)->format('Y-m-d')) }}"
                class="border w-full p-2 mt-2 {{ $errors->has('due_date') ? 'border-red-500' : '' }}">
