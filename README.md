@@ -187,22 +187,25 @@ http://127.0.0.1:8000
 ```
 ___
 
-# How to use the UI
+## How to Use the UI
+
 The application provides a user-friendly interface for managing users and tasks.
 
-1. User Management
+### 1. User Management
 
-	•	Viewing Users: Navigate to the User List section to view a list of registered users.
-	•	Editing a User: Click Edit next under the actions, update the information, and save changes.
-	•	Deleting a User: Click Delete under the actions, and confirm to remove them from the system.
+- **Viewing Users**: Navigate to the **User List** section to view a list of registered users.
+- **Adding a New User**: Click the **Add New User** button, fill in the user details, and submit to create a new user.
+- **Editing a User**: In the User List, click **Edit** next to the user you want to modify. Update the information and save changes.
+- **Deleting a User**: Click **Delete** next to the user and confirm the action to remove them from the system.
 
-2. Task Management
+### 2. Task Management
 
-	•	Viewing Tasks: Go to the Task List section to see a list of tasks with details like title, description, due date, and assigned user.
-	•	Adding a New Task: Click Add New Task, fill in details like title, description, status, due date, and assigned user, then save.
-    •	Updating Task Status: Modify the task details.
-	•	Editing a Task: Click Edit under actions, update the details, and save changes.
-	•	Deleting a Task: Click Delete next to the task and confirm to remove it.
+- **Viewing Tasks**: Go to the **Task List** section to see a list of tasks with details like title, description, due date, and assigned user.
+- **Adding a New Task**: Click **Add New Task**, fill in details such as title, description, status, due date, and assigned user, then save the task.
+- **Editing a Task**: Click **Edit** next to the task in the Task List. Update the task details as needed and save the changes.
+- **Deleting a Task**: Click **Delete** next to the task and confirm to remove it from the list.
+- **Updating Task Status**: Modify the task's status directly from the Task List to track progress (e.g., Pending, In Progress, or Completed).
+
 	
 
 
