@@ -16,8 +16,12 @@ class TaskController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(): View
+    public function index(Request $request): View
     {
+        if (!$request->session()->has('previous_url')) {
+            $request->session()->put('previous_url', url()->full());
+        }
+
         $tasks = Task::with('user')->paginate(10);
 
         return view('tasks.index', compact('tasks'));
@@ -59,8 +63,12 @@ class TaskController extends Controller
 
         Task::create($validated);
 
-        return redirect($request->input('previous_url', route('tasks.index')))
-            ->with('success', 'Task created successfully!');
+        $previousUrl = $request->session()->get('previous_url', route('tasks.index'));
+
+        // Clear the previous URL from the session after redirecting
+        $request->session()->forget('previous_url');
+
+        return redirect($previousUrl)->with('success', 'Task created successfully!');
     }
 
     /**
@@ -69,8 +77,12 @@ class TaskController extends Controller
      * @param \App\Models\Task $task
      * @return \Illuminate\View\View
      */
-    public function show(Task $task): View
+    public function show(Task $task, Request $request): View
     {
+        if (!$request->session()->has('previous_url')) {
+            $request->session()->put('previous_url', url()->full());
+        }
+
         return view('tasks.show', compact('task'));
     }
 

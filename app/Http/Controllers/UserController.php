@@ -63,8 +63,12 @@ class UserController extends Controller
      * @param User $user
      * @return \Illuminate\View\View
      */
-    public function show(User $user): View
+    public function show(User $user, Request $request): View
     {
+        if (!$request->session()->has('previous_url')) {
+            $request->session()->put('previous_url', url()->full());
+        }
+
         return view('users.view', compact('user'));
     }
 
