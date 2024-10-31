@@ -170,6 +170,20 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
+---
+# How to Run the Application
+Once you’ve completed the setup steps, follow these instructions to start and access the application.
+
+## Step 1: Start the Laravel Development Server
+Run the following command to start the Laravel development server:
+```
+php artisan serve
+```
+
+## Step 2: Access the Application
+```
+http://127.0.0.1:8000
+```
 
 
 
