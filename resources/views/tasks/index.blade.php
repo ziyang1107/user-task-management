@@ -5,7 +5,7 @@
 @section('content')
 <h1 class="text-2xl font-bold mb-4">Task List</h1>
 
-<a href="{{ route('tasks.create') }}" class="bg-green-500 text-white px-4 py-2 rounded mb-3 inline-block">Add New Task</a>
+<a href="{{ route('tasks.create') }}" class="bg-green-500 text-white font-semibold px-4 py-2 rounded inline-block transition-opacity duration-200 hover:opacity-50">Add New Task</a>
 
 <div class="flex justify-end mb-4">
     <span class="text-black-600 font-semibold">Total Tasks: {{ $tasks->count() }}</span>
