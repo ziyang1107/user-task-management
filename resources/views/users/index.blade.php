@@ -19,7 +19,7 @@
 
 <!-- User Count -->
 <div class="flex justify-end mb-4">
-    <span class="text-black-600 font-semibold">Total Users: {{ $users->total() }}</span>
+    <span class="text-gray-600 font-semibold">Total Users: {{ $users->total() }}</span>
 </div>
 
 @if($users->isEmpty())
@@ -67,12 +67,16 @@
 
 <!-- Success Message Auto-hide Script -->
 <script>
-    setTimeout(() => {
-        const message = document.getElementById('success-message');
-        if (message) {
-            message.style.display = 'none';
+    document.addEventListener('DOMContentLoaded', function() {
+        const successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            setTimeout(() => {
+                successMessage.style.transition = 'opacity 0.5s ease';
+                successMessage.style.opacity = '0';
+                setTimeout(() => successMessage.remove(), 500);
+            }, 3000);
         }
-    }, 3000);
+    });
 </script>
 
 @endsection
