@@ -63,7 +63,7 @@
     <div class="overflow-y-auto max-h-64">
         <table class="table-auto w-full border border-gray-700 mt-4" aria-label="User tasks table">
             <thead>
-            <tr class="bg-gray-200">
+            <tr style="background-color: #BCD2E8;">
                 <!-- Table Headers for Task Details -->
                 <th class="border px-4 py-2 text-center">ID</th>
                 <th class="border px-4 py-2 text-center">Title</th>
