@@ -8,15 +8,16 @@
 <form action="{{ route('tasks.store') }}" method="POST" class="bg-white p-6 rounded shadow-md">
     @csrf
 
+    <!-- User Assignment Section -->
     @if(request()->query('user_id'))
     <input type="hidden" name="user_id" value="{{ request()->query('user_id') }}">
     @else
     <div class="mb-4 relative">
         <label for="user_search" class="block font-bold">Assign to User</label>
-        <input type="text" id="user_search" onkeyup="filterUsers()" placeholder="Search user by name" class="border w-full p-2 mb-2">
+        <input type="text" id="user_search" onkeyup="filterUsers()" placeholder="Username*" class="border w-full p-2 mt-2">
 
-        <!-- Hidden dropdown for form submission -->
-        <select id="user_dropdown" name="user_id" class="hidden">
+        <!-- Dropdown for form submission -->
+        <select id="user_dropdown" name="user_id" class="w-full hidden">
             <option value="">Select a user</option>
             @foreach($users as $user)
             <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
@@ -25,41 +26,44 @@
             @endforeach
         </select>
 
-        <!-- Display filtered results here -->
-        <div id="user_results" class="absolute w-full bg-gray-200 rounded shadow-md max-h-40 overflow-y-auto hidden" style="top: calc(100% + 4px); z-index: 10;"></div>
-
+        <!-- Filtered results -->
+        <div id="user_results" class="absolute w-full bg-gray-200 shadow-md max-h-40 overflow-y-auto hidden" style="top: calc(100% + 4px); z-index: 10;"></div>
         @error('user_id') <span class="text-red-500">{{ $message }}</span> @enderror
     </div>
     @endif
 
+    <!-- Task Title -->
     <div class="mb-4">
         <label for="title" class="block font-bold">Title</label>
-        <input type="text" id="title" name="title" class="border w-full p-2" value="{{ old('title') }}">
+        <input type="text" id="title" name="title" placeholder="Title*" class="border w-full p-2 mt-2" value="{{ old('title') }}">
         @error('title') <span class="text-red-500">{{ $message }}</span> @enderror
     </div>
 
+    <!-- Task Description -->
     <div class="mb-4">
         <label for="description" class="block font-bold">Description</label>
-        <textarea id="description" name="description" class="border w-full p-2">{{ old('description') }}</textarea>
+        <textarea id="description" name="description" placeholder="Description*" class="border w-full p-2 mt-2" rows="5">{{ old('description') }}</textarea>
         @error('description') <span class="text-red-500">{{ $message }}</span> @enderror
     </div>
 
+    <!-- Task Status -->
     <div class="mb-4">
         <label for="status" class="block font-bold">Status</label>
-        <select id="status" name="status" class="border w-full p-2">
+        <select id="status" name="status" class="border w-full p-2 mt-2 h-10">
             <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>
             <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Completed</option>
         </select>
         @error('status') <span class="text-red-500">{{ $message }}</span> @enderror
     </div>
 
+    <!-- Task Due Date -->
     <div class="mb-4">
         <label for="due_date" class="block font-bold">Due Date</label>
-        <input type="date" id="due_date" name="due_date" class="border w-full p-2" value="{{ old('due_date') }}">
+        <input type="date" id="due_date" name="due_date" class="border w-full p-2 mt-2" value="{{ old('due_date') }}">
         @error('due_date') <span class="text-red-500">{{ $message }}</span> @enderror
     </div>
 
-    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Create Task</button>
+    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded mt-2">Create Task</button>
 </form>
 
 <script>
@@ -101,6 +105,13 @@
         if (!document.getElementById('user_search').contains(event.target) && !resultsDiv.contains(event.target)) {
             resultsDiv.classList.add('hidden');
         }
+    });
+
+    // Set minimum date for due date input
+    document.addEventListener('DOMContentLoaded', function() {
+        const dueDateInput = document.getElementById('due_date');
+        const today = new Date().toISOString().split('T')[0];
+        dueDateInput.setAttribute('min', today);
     });
 </script>
 @endsection
