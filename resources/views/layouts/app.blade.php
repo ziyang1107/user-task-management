@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <style>
         .active-tab {
-            background-color: #CAE9F5;
+            background-color: #BCD2E8;
             border-radius: 0.375rem;
         }
     </style>
