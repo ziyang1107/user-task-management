@@ -10,7 +10,7 @@
 
 <div class="flex items-center justify-center h-screen">
     <div class="text-center">
-        <h1 class="text-4xl font-bold mb-6">Welcome to the Task Management App</h1>
+        <h1 class="text-4xl font-bold mb-6">Welcome to the User Task Management</h1>
 
         <div class="space-x-4 mt-12">
             <a href="{{ route('users.index') }}"
