@@ -18,9 +18,7 @@ class TaskController extends Controller
      */
     public function index(Request $request): View
     {
-        if (!$request->session()->has('previous_url')) {
-            $request->session()->put('previous_url', url()->full());
-        }
+        $request->session()->put('previous_url', url()->full());
 
         $tasks = Task::with('user')->paginate(10);
 
@@ -78,8 +76,6 @@ class TaskController extends Controller
      */
     public function show(Task $task, Request $request): View
     {
-        $request->session()->put('previous_url', url()->full());
-
         return view('tasks.show', compact('task'));
     }
 
@@ -116,7 +112,7 @@ class TaskController extends Controller
 
         $task->update($validated);
 
-        return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
+        return redirect()->back()->with('success', 'Task updated successfully.');
     }
 
     /**
