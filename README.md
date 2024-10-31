@@ -69,6 +69,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 1. [Project Setup Instructions](#project-setup-instructions)
 2. [How to Run the Application](#how-to-run-the-application)
+3. [How to use the UI](#how-to-use-the-UI)
 
 ---
 
@@ -184,6 +185,26 @@ php artisan serve
 ```
 http://127.0.0.1:8000
 ```
+___
+
+# How to use the UI
+The application provides a user-friendly interface for managing users and tasks.
+
+1. User Management
+
+	•	Viewing Users: Navigate to the User List section to view a list of registered users.
+	•	Editing a User: Click Edit next under the actions, update the information, and save changes.
+	•	Deleting a User: Click Delete under the actions, and confirm to remove them from the system.
+
+2. Task Management
+
+	•	Viewing Tasks: Go to the Task List section to see a list of tasks with details like title, description, due date, and assigned user.
+	•	Adding a New Task: Click Add New Task, fill in details like title, description, status, due date, and assigned user, then save.
+    •	Updating Task Status: Modify the task details.
+	•	Editing a Task: Click Edit under actions, update the details, and save changes.
+	•	Deleting a Task: Click Delete next to the task and confirm to remove it.
+	
+
 
 
 
