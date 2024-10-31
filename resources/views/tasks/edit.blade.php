@@ -7,13 +7,6 @@
 <!-- Page Header -->
 <h1 class="text-2xl font-bold mb-4">Edit Task</h1>
 
-<!-- Success Message -->
-@if(session('success'))
-<div id="success-message" class="bg-green-100 text-green-700 p-3 rounded mb-4">
-    {{ session('success') }}
-</div>
-@endif
-
 <!-- Edit Task Form -->
 <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="bg-white p-6 rounded shadow-md">
     @csrf
@@ -104,18 +97,6 @@
 
 <!-- JavaScript for Success Message and User Search Functionality -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Fade out success message after 3 seconds
-        const successMessage = document.getElementById('success-message');
-        if (successMessage) {
-            setTimeout(() => {
-                successMessage.style.transition = 'opacity 0.5s ease';
-                successMessage.style.opacity = '0';
-                setTimeout(() => successMessage.remove(), 500);
-            }, 3000);
-        }
-    });
-
     // JavaScript Variables and Functions for User Search and Selection
     let users = @json($users);
 
