@@ -117,16 +117,23 @@ cp .env.example .env
 
 Then open the .env file and configure the following settings:
 Set the database details to match your local database setup:
+```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=your_database_name    # Replace with your database name
 DB_USERNAME=your_database_user     # Replace with your database username
 DB_PASSWORD=your_database_password # Replace with your database password
+```
 
 To use file-based storage for sessions and cache, set the following values in .env:
+```
 SESSION_DRIVER=file
+```
+```
 CACHE_DRIVER=file
+```
+
 
 
 ## Step 5: Generate Application Key
@@ -146,21 +153,22 @@ php artisan setup:database
 This command will create the database (if it doesn’t exist) and run all migrations.
 
 
+
 Option B: Manual Database Setup
 
 If you prefer, you can set up the database manually with the following steps:
 
 1) Create the Database: Log in to MySQL and create a new database:
 ```
-   CREATE DATABASE your_database_name;
+CREATE DATABASE your_database_name;
 ```
 2) Run Migrations: Execute migrations to create the necessary tables:
- ```
-   php artisan migrate
+```
+php artisan migrate
 ```
 3) Seed the Database (Optional): Populate the database with sample data by               running:
- ```
- php artisan db:seed
+```
+php artisan db:seed
 ```
 
 
