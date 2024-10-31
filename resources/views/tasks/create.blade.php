@@ -21,10 +21,20 @@
     <div class="mb-4 relative">
         <!-- User Search Input -->
         <label for="user_search" class="block font-bold">Assign to User</label>
-        <input type="text" id="user_search" onkeyup="filterUsers()" placeholder="Username*" class="border w-full p-2 mt-2">
+        <input
+            type="text"
+            id="user_search"
+            onkeyup="filterUsers()"
+            placeholder="Username*"
+            class="border w-full p-2 mt-2 {{ $errors->has('user_id') ? 'border-red-500' : '' }}"
+        >
 
         <!-- User Dropdown (hidden, updated via JavaScript) -->
-        <select id="user_dropdown" name="user_id" class="w-full hidden">
+        <select
+            id="user_dropdown"
+            name="user_id"
+            class="w-full hidden {{ $errors->has('user_id') ? 'border-red-500' : '' }}"
+        >
             <option value="">Select a user</option>
             @foreach($users as $user)
             <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
@@ -35,14 +45,18 @@
 
         <!-- Filtered User Results Display -->
         <div id="user_results" class="absolute w-full bg-gray-200 shadow-md max-h-40 overflow-y-auto hidden" style="top: calc(100% + 4px); z-index: 10;"></div>
-        @error('user_id') <span class="text-red-500 text-sm mt-1 block font-bold">{{ $message }}</span> @enderror
+
+        <!-- Error Message Display -->
+        @error('user_id')
+        <span class="text-red-500 text-sm mt-1 block font-bold">{{ $message }}</span>
+        @enderror
     </div>
     @endif
 
     <!-- Task Title Input -->
     <div class="mb-4">
         <label for="title" class="block font-bold">Title</label>
-        <input type="text" id="title" name="title" placeholder="Title*" class="border w-full p-2 mt-2" value="{{ old('title') }}">
+        <input type="text" id="title" name="title" placeholder="Title*" class="border w-full p-2 mt-2 {{ $errors->has('title') ? 'border-red-500' : '' }}" ">
         @error('title') <span class="text-red-500 text-sm mt-1 block font-bold">{{ $message }}</span> @enderror
     </div>
 
@@ -121,6 +135,26 @@
         const dueDateInput = document.getElementById('due_date');
         const today = new Date().toISOString().split('T')[0];
         dueDateInput.setAttribute('min', today);
+    });
+
+    // Hide error messages on focus for both title and user search inputs
+    document.addEventListener("DOMContentLoaded", function() {
+        const inputs = ['title', 'user_search'];
+
+        inputs.forEach(inputId => {
+            const inputElement = document.getElementById(inputId);
+
+            if (inputElement) {
+                inputElement.addEventListener('focus', () => {
+                    const errorSpan = inputElement.parentElement.querySelector('.text-red-500');
+                    if (errorSpan) {
+                        errorSpan.style.display = 'none';
+                    }
+
+                    inputElement.classList.remove('border-red-500');
+                });
+            }
+        });
     });
 </script>
 
