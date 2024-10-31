@@ -74,6 +74,12 @@
         </tbody>
     </table>
 </div>
+
+<!-- Pagination Controls -->
+<div class="mt-4">
+    {{ $tasks->links() }}
+</div>
+
 @endif
 
 <script>
