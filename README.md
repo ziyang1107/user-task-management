@@ -64,5 +64,50 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# user-task-management
+
+## Table of Contents
+
+1. [Project Setup Instructions](#project-setup-instructions)
+2. [How to Run the Application](#how-to-run-the-application)
+
+---
+
+# Project Setup Instructions
+
+This guide will help you set up and configure the Laravel Task Management Application on your local machine.
+
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **PHP** 
+- **Composer**: PHP dependency manager
+- **MySQL**: Or another supported database
+- **Node.js & npm**: For managing frontend dependencies
+- **Git**: For cloning the repository
+
+---
+
+## Step 1: Clone the Repository
+
+Open your terminal, navigate to your projects directory, and run:
+
+```bash
+git clone https://github.com/ziyang1107/user-task-management.git
+cd your-repository-name
+
+## Step 2: Install PHP Dependencies
+composer install
+
+## Step 3: Install Frontend Dependencies
+npm install
+
+## Step 4: Set Up Environment Variables
+cp .env.example .env
+
+
+
+
 
