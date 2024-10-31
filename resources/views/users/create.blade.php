@@ -15,6 +15,7 @@
     <div class="mb-6">
         <label for="name" class="block font-bold">Name</label>
         <input type="text" id="name" name="name"
+               placeholder="Username*"
                class="border w-full p-2 mt-2 {{ $errors->has('name') ? 'border-red-500' : '' }}"
                value="{{ old('name') }}">
         @error('name')
@@ -26,6 +27,7 @@
     <div class="mb-6">
         <label for="email" class="block font-bold">Email</label>
         <input type="email" id="email" name="email"
+               placeholder="Email Address*"
                class="border w-full p-2 mt-2 {{ $errors->has('email') ? 'border-red-500' : '' }}"
                value="{{ old('email') }}">
         @error('email')
