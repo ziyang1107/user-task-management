@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <style>
         .active-tab {
-            background-color: #BCD2E8;
+            background-color: #E5F3FD;
             border-radius: 0.375rem;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 2px;
         }
     </style>
 </head>
@@ -19,17 +22,17 @@
         <!-- Navigation Links -->
         <div class="flex space-x-4">
             <a href="{{ route('welcome') }}"
-               class="text-lg px-3 py-2 {{ request()->routeIs('welcome') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
+               class="text-lg px-4 py-2 {{ request()->routeIs('welcome') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
                 Home
             </a>
 
             <a href="{{ route('users.index') }}"
-               class="text-lg px-3 py-2 {{ request()->routeIs('users.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
+               class="text-lg px-4 py-2 {{ request()->routeIs('users.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
                 Users
             </a>
 
             <a href="{{ route('tasks.index') }}"
-               class="text-lg px-3 py-2 {{ request()->routeIs('tasks.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
+               class="text-lg px-4 py-2 {{ request()->routeIs('tasks.*') ? 'text-blue-700 font-bold active-tab' : 'text-blue-500' }}">
                 Tasks
             </a>
         </div>
