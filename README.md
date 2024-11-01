@@ -70,7 +70,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 1. [Project Setup Instructions](#project-setup-instructions)
 2. [How to Run the Application](#how-to-run-the-application)
 3. [How to use the UI](#how-to-use-the-UI)
-4. [Screenshots of the Program] (#screenshots-of-the-program)
+4. [Screenshots of the Program](#screenshots-of-the-program)
 
 ---
 
@@ -188,7 +188,7 @@ http://127.0.0.1:8000
 ```
 ___
 
-## How to Use the UI
+# How to Use the UI
 
 The application provides a user-friendly interface for managing users and tasks.
 
@@ -209,7 +209,11 @@ The application provides a user-friendly interface for managing users and tasks.
 
 ---
 
-## Screenshots of the program
+# Screenshots of the Program
+
+This section provides a variety of screenshots of the program.
+
+### Screenshots
 - Home Screen 
 ![Home Screen](docs/images/HomeScreen.png)
 - Empty User List Screen
