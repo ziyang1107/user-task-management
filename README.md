@@ -70,6 +70,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 1. [Project Setup Instructions](#project-setup-instructions)
 2. [How to Run the Application](#how-to-run-the-application)
 3. [How to use the UI](#how-to-use-the-UI)
+4. [Screenshots of the Program] (#screenshots-of-the-program)
 
 ---
 
@@ -83,7 +84,7 @@ This guide will help you set up and configure the Laravel Task Management Applic
 
 Before you begin, ensure you have the following installed:
 
-- **PHP** 
+- **PHP**: (version 8.0.0 or higher)
 - **Composer**: PHP dependency manager
 - **MySQL**: Or another supported database
 - **Node.js & npm**: For managing frontend dependencies
@@ -116,7 +117,7 @@ Copy the .env.example file to create a new .env file:
 cp .env.example .env
 ```
 
-Then open the .env file and configure the following settings:
+Then open the .env file and configure the following settings.
 Set the database details to match your local database setup:
 ```
 DB_CONNECTION=mysql
@@ -205,6 +206,39 @@ The application provides a user-friendly interface for managing users and tasks.
 - **Editing a Task**: Click **Edit** next to the task in the Task List. Update the task details as needed and save the changes.
 - **Deleting a Task**: Click **Delete** next to the task and confirm to remove it from the list.
 - **Updating Task Status**: Modify the task's status directly from the Task List to track progress (e.g., Pending, In Progress, or Completed).
+
+---
+
+## Screenshots of the program
+- Home Screen 
+![Home Screen](docs/images/HomeScreen.png)
+- Empty User List Screen
+  ![Empty User List Screen](docs/images/EmptyUserList.png)
+- User List Screen
+  ![User List Screen](docs/images/UserList.png)
+- Create User Form
+  ![Create User Form](docs/images/CreateUserForm.png)
+- Create User Form Error Validation
+  ![Create User Form Validation Error](docs/images/CreateUserError.png)
+- Successful Message Screen
+  ![Successful Message Screen](docs/images/SuccessfulScreen.png)
+- User Details Screen - View Button
+  ![User Details Screen](docs/images/ViewUserScreen.png)
+- Edit User Screen - Edit Button
+  ![Edit User Screen](docs/images/EditUserScreen.png)
+- Delete User Screen - Delete Button
+  ![Delete User Screen](docs/images/DeleteUserScreen.png)
+- Empty Task List Screen
+  ![Empty Task List Screen](docs/images/EmptyTaskList.png)
+- Task List Screen
+  ![Task List Screen](docs/images/TaskList.png)
+- Create Task Screen
+  ![Create List Screen](docs/images/CreateTaskScreen.png)
+- Edit Task Screen - Edit Button
+  ![Edit Task Screen](docs/images/EditTaskScreen.png)
+- Delete Task Screen - Delete Button
+  ![Delete Task Screen](docs/images/DeleteTaskScreen.png)
+
 
 	
 
